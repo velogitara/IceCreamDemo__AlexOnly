@@ -3,6 +3,14 @@
   background-color: $bg-hero;
 }
 
+.hero-header-container {
+  @media screen and(max-width: 480px) {
+    background-image: url(../images/hero/elipse/Ellipse-mob.png);
+    background-repeat: no-repeat;
+    background-position: right 55%;
+  }
+}
+
 .background-ellipse {
   @media screen and(min-width: 768px) {
     position: absolute;
@@ -35,12 +43,6 @@
   @include respond-to(tablet) {
     padding-top: 15px;
     padding-bottom: 28px;
-  }
-
-  @media screen and(max-width: 480px) {
-    background-image: url(../images/hero/elipse/Ellipse-mob.png);
-    background-repeat: no-repeat;
-    background-position: right 27%;
   }
 
   @media screen and(min-width: 481px) and (max-width: 767px) {

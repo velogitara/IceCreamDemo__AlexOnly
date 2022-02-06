@@ -81,42 +81,35 @@
   @include respond-to(tablet-only) {
     display: block;
     position: absolute;
-    top: 35px;
-    right: 35px;
+    top: 40px;
+    right: 40px;
     z-index: 5;
     width: 30px;
     height: 18px;
     cursor: pointer;
+    transition: transform 250ms $cubic;
+  }
+  &:active {
+    transform: scale(1.5) translateX(-300px);
   }
 }
 
-.menu__burger span,
-.menu__burger::after,
-.menu__burger::before {
+.menu__burger span:nth-child(1) {
   position: absolute;
   right: 0;
   height: 10%;
   width: 100%;
-  transition: all 200ms $cubic;
   background-color: $font-white;
+  transform: rotateZ(-45deg);
 }
 
-.menu__burger::after,
-.menu__burger::before {
-  content: '';
-}
-
-.menu__burger::before {
-  top: 0;
-}
-
-.menu__burger::after {
-  bottom: 0;
-}
-
-.menu__burger span {
-  top: 50%;
-  transform: scale(1) translate(0px, -50%);
+.menu__burger span:nth-child(2) {
+  position: absolute;
+  right: 0;
+  height: 10%;
+  width: 100%;
+  background-color: $font-white;
+  transform: rotateZ(45deg);
 }
 
 // --------------------- ^^^^^^ кнопка при открытом меню ^^^^^-------------------------
@@ -133,6 +126,7 @@
     width: 30px;
     height: 18px;
     cursor: pointer;
+    transition: transform 500ms $cubic;
   }
 }
 
@@ -144,7 +138,7 @@
   height: 10%;
   width: 100%;
   transition: opacity 250ms $cubic;
-  background-color: $font-white;
+  background-color: $font-accent;
 }
 
 .menu__burger--menu-close::after,
@@ -166,7 +160,7 @@
 }
 
 .menu__burger--menu-is-open {
-  display: none;
+  transform: perspective(400px) rotate(360deg) scale(0);
   //   position: fixed;
   //   top: 35px;
   //   right: 35px;

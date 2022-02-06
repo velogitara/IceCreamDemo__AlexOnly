@@ -14,10 +14,12 @@ $(document).ready(function () {
     });
 });
 
+
+
 // -------------  Добавляет класс  тому-же тегу
 (() => {
   const menuBtnRef = document.querySelector("[data-menu]");
-    // const mobileMenuRef = document.querySelector("[data-menu-open]");
+    const mobileMenuRef = document.querySelector("[data-menu-open]");
     // const btnReadGreen = document.querySelector("[data-menu-green]");
   
     menuBtnRef.addEventListener("click", () => {
@@ -27,11 +29,11 @@ $(document).ready(function () {
     
        
              });
-    //     mobileMenuRef.addEventListener("click", () => {
-    //         const expanded =
+        // mobileMenuRef.addEventListener("click", () => {
+        //     const expanded =
               
-    //             mobileMenuRef.classList.remove("menu__burger--menu-is-open");
-    //     });
+        //         mobileMenuRef.classList.toggle("menu__burger--is-close");
+        // });
     
     // btnReadGreen.addEventListener("click", () => {
     //     const expanded =
