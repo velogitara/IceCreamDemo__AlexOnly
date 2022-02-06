@@ -5,4 +5,4 @@ $(document).ready(function(){$(".menu__burger--menu-close").click(function(){ret
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header");
 },{"./sass/main.scss":"clu1","./js/header":"cGsR"}]},{},["Focm"], null)
-//# sourceMappingURL=/IceCreamDemo__AlexOnly/src.efddd33a.js.map
+//# sourceMappingURL=/IceCreamDemo__AlexOnly/src.8f33bb5e.js.map
