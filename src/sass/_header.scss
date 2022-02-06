@@ -143,7 +143,7 @@
   right: 0;
   height: 10%;
   width: 100%;
-  transition: all 200ms $cubic;
+  transition: opacity 250ms $cubic;
   background-color: $font-white;
 }
 
@@ -167,6 +167,20 @@
 
 .menu__burger--menu-is-open {
   display: none;
+  //   position: fixed;
+  //   top: 35px;
+  //   right: 35px;
+
+  //   &.menu__burger--menu-close span {
+  //     opacity: 0;
+  //   }
+
+  //   &.menu__burger--menu-close::before {
+  //     transform: translateX(90deg);
+  //   }
+  //   &.menu__burger--menu-close::after {
+  //     transform: translateX(-90deg);
+  //   }
 }
 
 // --------------------- ^^^^^^ кнопка при закрытом меню ^^^^^-------------------------
