@@ -195,7 +195,7 @@
   left: 40px;
   @include respond-to(desktop) {
     bottom: 45px;
-    left: 77px;
+    left: 0;
   }
 }
 .hero__milkText {
@@ -337,6 +337,6 @@
   }
   @include respond-to(desktop) {
     bottom: 0;
-    right: 140px;
+    right: 55px;
   }
 }

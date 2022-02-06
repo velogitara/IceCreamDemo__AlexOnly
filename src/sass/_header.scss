@@ -1,250 +1,193 @@
-// .pageheader {
-//   position: relative;
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   padding-top: 6px;
-//   padding-bottom: 15px;
-//   // background-color: $bg-hero;
+.header-container {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 3;
+  @include respond-to(tablet-only) {
+    padding-top: 20px;
+  }
+}
+.logo {
+  display: block;
+}
 
-//   @include respond-to(tablet) {
-//     padding-top: 37px;
-//   }
-// }
+.navigation__list {
+  display: block;
 
-// .header {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   position: relative;
-// }
+  @include respond-to(tablet-only) {
+    margin-top: 32px;
+  }
+  @include respond-to(desktop) {
+    display: flex;
+    flex-direction: row;
+  }
+}
 
-// .logo {
-//   margin-right: 110px;
-// }
+.navigation__item {
+  @include respond-to(tablet-only) {
+  }
+}
+.navigation__item:not(:first-child) {
+  @include respond-to(tablet-only) {
+    margin-top: 22px;
+  }
+  @include respond-to(desktop) {
+    margin-left: 35px;
+  }
+}
 
-// .menu-button {
-//   position: absolute;
-//   width: 20px;
-//   height: 20px;
-//   top: 17px;
-//   left: 87%;
-//   margin: auto;
-//   border: transparent;
-//   background-color: transparent;
-//   color: $font-accent;
-//   z-index: 50;
-//   overflow: hidden;
-//   @include transit(color);
+.navigation__link {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  color: $font-white;
 
-//   & span {
-//     width: 20px;
-//     height: 1px;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     background-color: $font-accent;
-//     transform: translate(-50%, -50%);
-//     @include transit(transform);
-//   }
+  @include transit(color);
+  &:hover {
+    color: $font-accent;
+  }
 
-//   & span:nth-of-type(2) {
-//     top: calc(50% - 6px);
-//   }
+  @include respond-to(tablet-only) {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+.buyNowButton {
+  display: none;
+  @include respond-to(desktop) {
+    display: block;
+  }
+}
 
-//   & span:nth-of-type(3) {
-//     top: calc(50% + 6px);
-//   }
+.buyNowButton--menu {
+  min-width: 186px;
+  @include respond-to(desktop) {
+    display: none;
+  }
+}
 
-//   &.is-open {
-//     position: fixed;
-//   }
+.buyNow--sign {
+  margin-left: 15px;
+  font-size: 18px;
+  line-height: 1.2;
+}
 
-//   &.is-open span:first-child {
-//     transform: translateX(100%);
-//   }
+// --------------------- кнопка при открытом меню-------------------------
+.menu__burger {
+  display: none;
+  @include respond-to(tablet-only) {
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    z-index: 5;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+  }
+}
 
-//   &.is-open span:nth-child(2) {
-//     top: 50%;
-//     transform: translate(-50%, -50%) rotate(45deg);
-//     background-color: $bg-section-primary;
-//   }
+.menu__burger span,
+.menu__burger::after,
+.menu__burger::before {
+  position: absolute;
+  right: 0;
+  height: 10%;
+  width: 100%;
+  transition: all 200ms $cubic;
+  background-color: $font-white;
+}
 
-//   &.is-open span:nth-child(3) {
-//     top: 50%;
-//     transform: translate(-50%, -50%) rotate(-45deg);
-//     background-color: $bg-section-primary;
-//   }
+.menu__burger::after,
+.menu__burger::before {
+  content: '';
+}
 
-//   @include respond-to(mobile) {
-//     &.is-open {
-//       left: 90%;
-//     }
-//   }
+.menu__burger::before {
+  top: 0;
+}
 
-//   @include respond-to(tablet) {
-//     top: 15px;
-//     left: 490px;
+.menu__burger::after {
+  bottom: 0;
+}
 
-//     &.is-open {
-//       top: 23px;
-//       left: 95%;
-//     }
-//   }
+.menu__burger span {
+  top: 50%;
+  transform: scale(1) translate(0px, -50%);
+}
 
-//   @include respond-to(desktop) {
-//     display: none;
-//   }
-// }
+// --------------------- ^^^^^^ кнопка при открытом меню ^^^^^-------------------------
 
-// .menu-container {
-//   @include respond-to(tablet-only) {
-//     /*position: fixed;*/
-//     display: none;
-//     overflow: hidden;
-//     top: 0;
-//     right: -100%;
-//     height: 100%;
-//     @include transit(right);
+// --------------------- кнопка при закрытом меню-------------------------
+.menu__burger--menu-close {
+  display: none;
+  @include respond-to(tablet-only) {
+    display: block;
+    position: relative;
+    top: 0;
+    right: 25px;
+    z-index: 5;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+  }
+}
 
-//     &.is-open {
-//       display: block;
-//       position: fixed;
-//       background-color: $bg-menu;
-//       right: 0;
-//       z-index: 20;
-//     }
-//   }
+.menu__burger--menu-close span,
+.menu__burger--menu-close::after,
+.menu__burger--menu-close::before {
+  position: absolute;
+  right: 0;
+  height: 10%;
+  width: 100%;
+  transition: all 200ms $cubic;
+  background-color: $font-white;
+}
 
-//   @include respond-to(mobile-only) {
-//     width: 250px;
-//   }
+.menu__burger--menu-close::after,
+.menu__burger--menu-close::before {
+  content: '';
+}
 
-//   @include respond-to(tablet) {
-//     width: 254px;
-//   }
+.menu__burger--menu-close::before {
+  top: 0;
+}
 
-//   @include respond-to(desktop) {
-//     position: relative;
-//     z-index: 1;
-//     display: flex;
-//     flex-direction: row-reverse;
-//     width: 100%;
-//   }
-// }
+.menu__burger--menu-close::after {
+  bottom: 0;
+}
 
-// .btn-primary {
-//   width: 209px;
-//   margin-bottom: 20px;
-//   margin-top: 60px;
-//   margin-left: auto;
-//   margin-right: auto;
+.menu__burger--menu-close span {
+  top: 50%;
+  transform: scale(1) translate(0px, -50%);
+}
 
-//   @include transit(background-color);
+.menu__burger--menu-is-open {
+  display: none;
+}
 
-//   &:hover,
-//   &:focus {
-//     background-color: $bg-button-hover;
-//   }
+// --------------------- ^^^^^^ кнопка при закрытом меню ^^^^^-------------------------
+.navigation__menu {
+  @include respond-to(tablet-only) {
+    position: fixed;
+    top: 0;
+    right: 0;
 
-//   @include respond-to(tablet) {
-//     width: 186px;
-//   }
+    text-align: start;
+    width: 250px;
+    height: 100%;
+    background-color: $bg-menu-mob;
+    padding: 80px 30px 30px 30px;
+    transform: translate(100%, 0);
 
-//   @include respond-to(desktop) {
-//     width: 160px;
-//     height: 44px;
-//     margin-bottom: 0;
-//     margin-top: 0;
-//     margin-right: 0;
-//   }
+    transition: transform 250ms $cubic;
+  }
+}
 
-//   .button__sign {
-//     margin-left: 15px;
-//     @include respond-to(desktop) {
-//       margin-left: 12px;
-//     }
-//   }
-// }
-
-// .for-tablet {
-//   display: none;
-//   @media screen and (min-width: 768px) and (max-width: 1279px) {
-//     display: flex;
-//     margin: 0;
-//     justify-content: center;
-//     align-items: center;
-//     background-color: $bg-button-first;
-//     width: 160px;
-//     height: 44px;
-//     border-radius: 22px;
-//     border-color: transparent;
-//     cursor: pointer;
-
-//     @include transit(background-color);
-
-//     &:hover,
-//     &:focus {
-//       background-color: $bg-button-hover;
-//     }
-
-//     .button__text,
-//     .button__sign {
-//       display: flex;
-//       justify-content: center;
-//       align-items: baseline;
-//       color: $font-accent;
-//       font-weight: 700;
-//       font-size: 16px;
-//       line-height: 1.31;
-//     }
-
-//     .button__sign {
-//       margin-left: 12px;
-//     }
-//   }
-// }
-
-// .navigation-links {
-//   @include respond-to(desktop) {
-//     display: flex;
-//   }
-// }
-
-// .navigation-links__link {
-//   color: $bg-section-primary;
-//   @include transit(color);
-
-//   &:hover,
-//   &:focus,
-//   &:active {
-//     color: $font-accent;
-//   }
-// }
-
-// .navigation-links__item {
-//   font-weight: bold;
-//   font-size: 14px;
-//   line-height: 1.29;
-//   padding-top: 12px;
-//   padding-bottom: 12px;
-//   border-bottom: 1px solid $line-menu;
-//   border-left: none;
-//   border-right: none;
-//   padding-left: 24px;
-//   cursor: pointer;
-
-//   &:first-child {
-//     border-top: 1px solid $line-menu;
-//   }
-
-//   @include respond-to(desktop) {
-//     padding-left: 0;
-//     margin-left: 35px;
-//     border: none;
-//     &:first-child {
-//       border-top: none;
-//       margin-left: 0;
-//     }
-//   }
-// }
+.navigation__menu--is-active {
+  transform: translate(0, 0);
+  position: fixed;
+}
