@@ -57,9 +57,17 @@
 }
 .buyNowButton {
   display: none;
-  @include respond-to(desktop) {
+  @include respond-to(tablet) {
+    opacity: 1;
+    transition: opacity 500ms $cubic, transform 500ms $cubic;
     display: block;
   }
+}
+
+.buyNowButton--is-close {
+  opacity: 0;
+  transform: rotateZ(360deg) scale(0);
+  pointer-events: none;
 }
 
 .buyNowButton--menu {
@@ -89,7 +97,8 @@
     cursor: pointer;
     transition: transform 250ms $cubic;
   }
-  &:active {
+  &:active,
+  &:focus {
     transform: scale(1.5) translateX(-300px);
   }
 }
@@ -198,4 +207,9 @@
 .navigation__menu--is-active {
   transform: translate(0, 0);
   position: fixed;
+}
+
+.menuAndButoon-container {
+  display: flex;
+  align-items: center;
 }

@@ -10,10 +10,16 @@ $(document).ready(function () {
 $(document).ready(function () {
     $(".menu__burger").click(function () {
         $(".navigation__menu").toggleClass("navigation__menu--is-active");
-         $(".menu__burger--menu-close").toggleClass("menu__burger--menu-is-open"); return false;
+        $(".menu__burger--menu-close").toggleClass("menu__burger--menu-is-open");
+        $(".buyNowButton").toggleClass("buyNowButton--is-close"); return false;
     });
 });
 
+$(document).ready(function () {
+    $(".menu__burger--menu-close").click(function () {
+        $(".buyNowButton").toggleClass("buyNowButton--is-close"); return false;
+    });
+});
 
 
 // -------------  Добавляет класс  тому-же тегу
